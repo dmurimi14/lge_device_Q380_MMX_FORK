@@ -138,6 +138,7 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
 
+USE_CAMERA_STUB := true
+
 # Hack for build
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-
