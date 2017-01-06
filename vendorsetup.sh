@@ -26,5 +26,6 @@ add_lunch_combo slim_q380-eng
 add_lunch_combo slim_q380-userdebug
 add_lunch_combo aosp_q380-eng
 add_lunch_combo aosp_q380-userdebug
-
+add_lunch_combo du_q380-eng
+add_lunch_combo du_q380-userdebug
 
