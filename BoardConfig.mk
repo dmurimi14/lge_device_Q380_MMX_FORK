@@ -93,14 +93,14 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/q380/bluetooth
 
 # TWRP
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_INTERNAL_STORAGE_PATH := "/emmc"
+TW_INTERNAL_STORAGE_PATH := "/devices/platform/mtk-msdc.0/mmc_host"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_EXTERNAL_STORAGE_PATH := "/devices/platform/mtk-msdc.1/mmc_host"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "/external_sd"
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p8"
+TW_CRYPTO_REAL_BLKDEV := "/emmc@usrdata"
 TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -118,7 +118,7 @@ BOARD_NEEDS_MTK_GETSIZE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
 
 BOARD_SEPOLICY_DIRS := \
        device/micromax/q380/sepolicy
@@ -132,13 +132,19 @@ BOARD_SEPOLICY_UNION := \
 
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
-TARGET_USERIMAGES_USE_EXT4:=true
-TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
 
+MALLOC_SVELTE := true
+TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 USE_CAMERA_STUB := true
+
+TARGET_USERIMAGES_USE_EXT4:=true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Hack for build
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
