@@ -1,8 +1,13 @@
-/misc		emmc	/dev/misc
-/data		ext4	/dev/block/mmcblk0p7
-/system		ext4	/dev/block/mmcblk0p5
-/cache		ext4	/dev/block/mmcblk0p6
-/boot		emmc	/dev/bootimg
-/recovery	emmc	/dev/recovery
-/emmc		vfat	/dev/block/mmcblk0p8
-/sdcard		vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1
+/boot	      emmc  /dev/bootimg                             flags=display="Boot";backup=1
+/logo	      emmc  /dev/logo		                     flags=display="Logo";backup=1
+/misc	      emmc  /dev/misc                                flags=display="Misc";backup=0
+/nvram	      emmc  /dev/nvram                               flags=display="Nvram";backup=1
+/recovery     emmc  /dev/recovery                            flags=display="Recovery";backup=1
+/uboot	      emmc  /dev/uboot                               flags=display="Uboot";backup=1
+/pro_info     emmc  /dev/pro_info                            flags=display="Pro_inFo";backup=1
+/secro 	      emmc  /dev/sec_ro                              flags=subpartitionof=/nvram;backup=1
+/system	      ext4  /emmc@android                            flags=display="System";backup=1;wipeingui
+/cache        ext4  /emmc@cache                              flags=display="Cache";backup=1;wipeingui;wipeduringfactoryreset
+/data         ext4  /emmc@usrdata                            flags=display="Data";backup=1;wipeingui;wipeduringfactoryreset;length=-16384
+/external_sd  vfat  /dev/block/mmcblk1p1 /dev/block/mmcblk1  flags=display="Micro SD";storage;wipeingui;removable;backup=0
+/usbotg	      vfat  /dev/block/sda1 /dev/block/sda           flags=display="Usb-Otg";storage;wipeingui;removable;backup=0
