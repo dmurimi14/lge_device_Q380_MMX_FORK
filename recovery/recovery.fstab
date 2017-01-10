@@ -1,13 +1,23 @@
-/boot		    emmc		/dev/bootimg     flags=display="Boot";backup=1
-/logo		    emmc	    /dev/logo		 flags=display="Logo";backup=1
-/misc		    emmc		/dev/misc        flags=display="Misc";backup=0
-/nvram		    emmc		/dev/nvram       flags=display="Nvram";backup=1
-/recovery	    emmc		/dev/recovery    flags=display="Recovery";backup=1
-/uboot		    emmc		/dev/uboot       flags=display="Uboot";backup=1
-/pro_info       emmc        /dev/pro_info    flags=display="Pro_inFo";backup=1
-/secro 	        emmc        /dev/sec_ro      flags=subpartitionof=/nvram;backup=1
-/system		    ext4		/emmc@android    flags=display="System";backup=1;wipeingui
-/cache		    ext4		/emmc@cache      flags=display="Cache";backup=1;wipeingui;wipeduringfactoryreset
-/data		    ext4		/emmc@usrdata    flags=display="Data";backup=1;wipeingui;wipeduringfactoryreset;length=-16384
-/external_sd	auto	    /dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=display="Micro SD";storage;wipeingui;removable;backup=0
-/usbotg			auto        /dev/block/sda1			/dev/block/sda			flags=display="Usb-Otg";storage;wipeingui;removable;backup=0
+# Android fstab file.
+#<src>           <mnt_point>         <type>    <mnt_flags and options>                 <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+/dev/boot                                /boot         emmc  defaults                                                    defaults
+/dev/recovery                            /recovery     emmc  defaults                                                    defaults
+/dev/block/mmcblk0p6                     /system       ext4  ro                                                          wait
+/dev/block/mmcblk0p3                     /data         ext4  noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,resize,forceencrypt=footer
+/dev/block/mmcblk0p2                     /cache        ext4  noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check
+/emmc@protect_f                          /protect_f    ext4  noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc    wait,check,autoformat
+/emmc@protect_s                          /protect_s    ext4  noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc    wait,check,autoformat
+/devices/platform/mtk-msdc.0/mmc_host    /sdcard       vfat  defaults                                                    voldmanaged=sdcard0:emmc@fat,noemulatedsd
+/dev/logo                                /logo         emmc  defaults                                                    defaults
+/dev/misc                                /misc         emmc  defaults                                                    defaults
+/dev/nvram                               /nvram        emmc  defaults                                                    defaults
+/dev/uboot                               /uboot        emmc  defaults                                                    defaults
+/dev/pro_info                            /pro_info     emmc  defaults                                                    defaults
+/dev/sec_ro                              /secro        emmc  defaults                                                    defaults
+/devices/platform/mtk-msdc.1/mmc_host    /external_sd  vfat  defaults                                                    voldmanaged=sdcard1:auto
+/devices/platform/mt_usb                 /usbotg       vfat  defaults                                                    voldmanaged=usbotg:auto
+
+
