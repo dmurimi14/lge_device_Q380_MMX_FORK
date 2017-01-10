@@ -19,5 +19,3 @@
 /dev/sec_ro                              /secro        emmc  defaults                                                    defaults
 /devices/platform/mtk-msdc.1/mmc_host    /external_sd  vfat  defaults                                                    voldmanaged=sdcard1:auto
 /devices/platform/mt_usb                 /usbotg       vfat  defaults                                                    voldmanaged=usbotg:auto
-
-
