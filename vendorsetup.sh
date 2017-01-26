@@ -20,12 +20,12 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo cm_q380-eng
-add_lunch_combo cm_q380-userdebug
-add_lunch_combo slim_q380-eng
-add_lunch_combo slim_q380-userdebug
-add_lunch_combo aosp_q380-eng
-add_lunch_combo aosp_q380-userdebug
-add_lunch_combo du_q380-eng
-add_lunch_combo du_q380-userdebug
+add_lunch_combo cm_luv80ds-eng
+add_lunch_combo cm_luv80ds-userdebug
+add_lunch_combo slim_luv80ds-eng
+add_lunch_combo slim_luv80ds-userdebug
+add_lunch_combo aosp_luv80ds-eng
+add_lunch_combo aosp_luv80ds-userdebug
+add_lunch_combo du_luv80ds-eng
+add_lunch_combo du_luv80ds-userdebug
 
