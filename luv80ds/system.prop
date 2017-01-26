@@ -1,5 +1,5 @@
 #
-# system.prop for q380
+# system.prop for luv80ds
 #
 
 
@@ -56,7 +56,7 @@ ro.audio.silent=0
 ro.zygote.preload.enable=0
 
 # temporary enables NAV bar (soft keys)
-qemu.hw.mainkeys=1
+qemu.hw.mainkeys=0
 
 ro.kernel.zio=38,108,105,16
 ro.boot.selinux=disable
@@ -81,13 +81,13 @@ mux.debuglog.enable=0
 
 ro.mediatek.chip_ver=S01
 ro.mediatek.platform=MT6582
-ro.mediatek.version.release=MMX_Q380_SW_V8.0.9_HW_V1.0_160615
+ro.mediatek.version.release=ALPS.L0.MP1.TC1SP.V1.4_MUSE6582.S7.L_TMP2
 ro.mediatek.version.sdk=1
-ro.telephony.sim.count=2
+ro.telephony.sim.count=1
 persist.radio.default.sim=0
-persist.radio.multisim.config=dsds
+persist.radio.multisim.config=us
 persist.md.perm.checked=to_upgrade
-persist.gemini.sim_num=2
+persist.gemini.sim_num=1
 ro.telephony.default_network=0,1
 ril.first.md=1
 ril.flightmode.poweroffMD=1
@@ -98,7 +98,7 @@ ril.specific.sm_cause=0
 bgw.current3gband=0
 ril.external.md=0
 ro.sf.hwrotation=0
-ril.current.share_modem=2
+ril.current.share_modem=1
 ril.radiooff.poweroffMD=0
 
 
