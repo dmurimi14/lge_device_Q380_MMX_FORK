@@ -1,4 +1,4 @@
-$(call inherit-product-if-exists, vendor/micromax/q380/q380-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/luv80ds/luv80ds-vendor.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
@@ -8,8 +8,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 # Specifying timezone
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -17,7 +17,7 @@ persist.sys.timezone=Asia/Kolkata
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-LOCAL_PATH := device/micromax/q380
+LOCAL_PATH := device/lge/luv80ds
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
