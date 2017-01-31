@@ -30,9 +30,9 @@ repo init -u git://https://github.com/ferhung-mtk/android -b cm-12.1
 
 repo sync
 
-Sync this device three in your path (device/vendor/lge)
+Sync this device tree in your /device dir
 --------------------------
-git clone -b cm-12.1 https://github.com/dil3mm4/luv80ds_LP.git
+git clone -b lpdevtree https://github.com/dil3mm4/android_device_lge_luv80ds.git
 
 
 
