@@ -32,7 +32,7 @@ repo sync
 
 Sync this device tree in your /device/lge dir
 --------------------------
-git clone -b lpdevtree https://github.com/dil3mm4/android_device_lge_luv80ds.git
+git clone -b lpdevtree https://github.com/dil3mm4/lge_device.git
 
 
 
